@@ -275,7 +275,7 @@ request req = do
     RequestBody.Document x → (unsafeToForeign :: Document -> Foreign) x
     RequestBody.String x → (unsafeToForeign :: String -> Foreign) x
     RequestBody.FormData x → (unsafeToForeign :: FormData -> Foreign) x
-    RequestBody.FormURLEncoded x → (unsafeToForeign :: String -> Foreign) (FormURLEncoded.encode x)
+    RequestBody.FormURLEncoded x → (unsafeToForeign :: Maybe String -> Foreign) (FormURLEncoded.encode x)
     RequestBody.Json x → (unsafeToForeign :: String -> Foreign) (J.stringify x)
 
   headers :: Maybe RequestBody.RequestBody -> Array RequestHeader
